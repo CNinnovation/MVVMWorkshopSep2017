@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheBestMVVMFrameworkInTown;
 
 namespace BooksSample.Models
 {
-    public class Book
+    public class Book : BindableBase
     {
         public Book()
         {
@@ -22,10 +23,24 @@ namespace BooksSample.Models
         }
 
         public int BookId { get; set; }
-        public string Title { get; set; }
-        public string Publisher { get; set; }
+        private string _title;
 
-        public IEnumerable<string> Authors { get;  }
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title, value);
+        }
+
+        private string _publisher;
+
+        public string Publisher
+        {
+            get => _publisher;
+            set => SetProperty(ref _publisher, value);
+        }
+
+
+        public IEnumerable<string> Authors { get; }
 
         public override string ToString() => Title;
 
