@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksSample", "BooksSample\BooksSample.csproj", "{2D8A0ECF-D3F0-45EF-A24C-FC2BE88FB2C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBestMVVMFrameworkInTown", "TheBestMVVMFrameworkInTown\TheBestMVVMFrameworkInTown.csproj", "{F3E85968-FFDE-40B2-8257-7BD2C6898C57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D8A0ECF-D3F0-45EF-A24C-FC2BE88FB2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8A0ECF-D3F0-45EF-A24C-FC2BE88FB2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8A0ECF-D3F0-45EF-A24C-FC2BE88FB2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8A0ECF-D3F0-45EF-A24C-FC2BE88FB2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3E85968-FFDE-40B2-8257-7BD2C6898C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E85968-FFDE-40B2-8257-7BD2C6898C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E85968-FFDE-40B2-8257-7BD2C6898C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E85968-FFDE-40B2-8257-7BD2C6898C57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEEDC5F7-6933-44F9-8DC3-5541AEC1AA5A}
+	EndGlobalSection
+EndGlobal

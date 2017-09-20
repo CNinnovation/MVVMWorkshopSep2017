@@ -1,0 +1,35 @@
+﻿<Window x:Class="BooksSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:BooksSample.Converters"
+        xmlns:local="clr-namespace:BooksSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <conv:StringCollectionConverter x:Key="StringCollectionConverter" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Content="GetBooks" Command="{Binding ViewModel.GetBooksCommand, Mode=OneTime}" />
+        </StackPanel>
+        <ListBox Grid.Row="1" ItemsSource="{Binding ViewModel.Books, Mode=OneWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Title, Mode=OneWay}" />
+                        <TextBlock Text="{Binding Publisher, Mode=OneWay}" />
+                        <TextBlock Text="{Binding Authors, Mode=OneWay, Converter={StaticResource StringCollectionConverter}, ConverterParameter='; '}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Window>
