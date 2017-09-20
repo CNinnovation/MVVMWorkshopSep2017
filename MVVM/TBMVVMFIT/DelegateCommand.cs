@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace TheBestMVVMFrameworkInTown
@@ -14,7 +10,6 @@ namespace TheBestMVVMFrameworkInTown
         public DelegateCommand(Action action)
             : this(action, null)
         {
-
         }
 
         public DelegateCommand(Action action, Func<bool> canExecute)
@@ -25,17 +20,8 @@ namespace TheBestMVVMFrameworkInTown
 
         public event EventHandler CanExecuteChanged;
 
-        //public bool CanExecute(object parameter)
-        //{
-        //    if (_canExecute == null) return true;
-        //    return _canExecute();
-        //}
-
         public bool CanExecute(object parameter) => _canExecute?.Invoke() ?? true;
 
-        public void Execute(object parameter)
-        {
-            _action();
-        }
+        public void Execute(object parameter) =>_action();
     }
 }

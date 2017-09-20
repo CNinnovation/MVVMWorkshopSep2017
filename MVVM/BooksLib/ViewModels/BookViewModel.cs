@@ -26,7 +26,7 @@ namespace MySharedLib.ViewModels
 
         public Book CurrentBook
         {
-            get { return _booksService.CurrentBook; }
+            get => _booksService.CurrentBook;
         }
     }
 }

@@ -36,8 +36,8 @@ namespace MySharedLib.ViewModels
 
         public Book SelectedBook
         {
-            get { return _booksService.CurrentBook; }
-            set { _booksService.CurrentBook = value; }
+            get => _booksService.CurrentBook;
+            set => _booksService.CurrentBook = value;
         }
 
     }

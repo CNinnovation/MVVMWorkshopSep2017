@@ -35,22 +35,8 @@ namespace MySharedLib.Services
         private Book _currentBook;
         public Book CurrentBook
         {
-            get { return _currentBook; }
-            set
-            {
-                SetProperty(ref _currentBook, value);
-                //if (_currentBook != value)
-                //{
-                //    _currentBook = value;
-                //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentBook"));
-
-                //    //PropertyChangedEventHandler handler = PropertyChanged;
-                //    //if (handler != null)
-                //    //{
-                //    //    handler(this, new PropertyChangedEventArgs("CurrentBook"));
-                //    //}
-                //}
-            }
+            get => _currentBook;
+            set => SetProperty(ref _currentBook, value);
         }
 
         public void AddBook(Book book)
