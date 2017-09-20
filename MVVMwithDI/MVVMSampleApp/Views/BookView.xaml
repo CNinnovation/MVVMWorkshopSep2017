@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="MVVMSampleApp.Views.BookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMSampleApp.Views"
+             xmlns:conv="clr-namespace:MVVMSampleApp.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <conv:StringArrayToStringConverter x:Key="StringArrayToStringConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Id" Grid.Row="0" Grid.Column="0" />
+        <TextBlock Text="Title" Grid.Row="1" Grid.Column="0" />
+        <TextBlock Text="Publisher" Grid.Row="2" Grid.Column="0" />
+        <TextBlock Text="Authors" Grid.Row="3" Grid.Column="0" />
+        <TextBox Text="{Binding ViewModel.CurrentBook.BookId}" Grid.Row="0" Grid.Column="1" />
+        <TextBox Text="{Binding ViewModel.CurrentBook.Title}" Grid.Row="1" Grid.Column="1" />
+        <TextBox Text="{Binding ViewModel.CurrentBook.Publisher}" Grid.Row="2" Grid.Column="1" />
+        <TextBlock Text="{Binding ViewModel.CurrentBook.Authors, Mode=OneTime, Converter={StaticResource StringArrayToStringConverter}, ConverterParameter=', '}" Grid.Row="3" Grid.Column="1" />
+    </Grid>
+</UserControl>
