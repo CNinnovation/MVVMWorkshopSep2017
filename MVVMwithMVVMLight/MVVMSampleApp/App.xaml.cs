@@ -1,6 +1,8 @@
-﻿using BooksSample.Services;
-using BooksSample.ViewModels;
+﻿using BooksLib.Services;
 using Microsoft.Extensions.DependencyInjection;
+using MVVMSampleApp.LocalServices;
+using MySharedLib.Services;
+using MySharedLib.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,7 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace BooksSample
+namespace MVVMSampleApp
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -19,15 +21,17 @@ namespace BooksSample
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
             RegisterServices();
         }
 
-        private void RegisterServices()
+        public void RegisterServices()
         {
             var services = new ServiceCollection();
             services.AddSingleton<IBooksService, BooksService>();
-            services.AddTransient<MainViewModel>();
+            services.AddSingleton<IDialogService, WPFDialogService>();
+            services.AddTransient<BooksViewModel>();
+            services.AddTransient<BookViewModel>();
+            
             Container = services.BuildServiceProvider();
         }
 

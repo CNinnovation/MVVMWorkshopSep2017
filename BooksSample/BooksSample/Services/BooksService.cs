@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BooksSample.Services
 {
-    public class BooksService
+    public class BooksService : IBooksService
     {
         private IEnumerable<Book> GetSampleBooks()
         {
@@ -27,12 +27,5 @@ namespace BooksSample.Services
 
         public IEnumerable<Book> GetBooks() => GetSampleBooks();
 
-        private BooksService()
-        {
-
-        }
-
-        private static BooksService s_BooksService;
-        public static BooksService Instance => s_BooksService ?? (s_BooksService = new BooksService());
     }
 }

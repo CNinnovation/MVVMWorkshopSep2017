@@ -1,0 +1,22 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:MyCustomControl="clr-namespace:MyCustomControl;assembly=MyCustomControl" x:Class="WpfApp1.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <MyCustomControl:CustomControl1 MyProperty="42" HorizontalAlignment="Left" Margin="85,102,0,0" VerticalAlignment="Top"/>
+        <local:UserControl1 HorizontalAlignment="Left" Height="100" Margin="246,111,0,0" VerticalAlignment="Top" Width="100"/>
+        <Slider Grid.Row="1" Width="200" HorizontalAlignment="Left" Margin="4" Minimum="10" Maximum="200"  />
+        <Button Background="{StaticResource myYellowBrush}" Content="Button" HorizontalAlignment="Left" Margin="85,38,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

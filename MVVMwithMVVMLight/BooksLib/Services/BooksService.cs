@@ -1,19 +1,15 @@
-﻿using MySharedLib.Models;
+﻿using GalaSoft.MvvmLight;
+using MySharedLib.Models;
 using System.Collections.Generic;
 using System.Linq;
-using TheBestMVVMFrameworkInTown;
 
 namespace MySharedLib.Services
 {
-    public class BooksService : BindableBase, IBooksService
+    public class BooksService : ObservableObject, IBooksService
     {
         private List<Book> _books;
 
-        private static BooksService _instance;
-
-        // Singleton pattern
-        public static BooksService Instance => _instance ?? (_instance = new BooksService());
-        private BooksService()
+        public BooksService()
         {
             var books = Enumerable.Range(1, 10)
                .Select(x =>
@@ -36,7 +32,7 @@ namespace MySharedLib.Services
         public Book CurrentBook
         {
             get => _currentBook;
-            set => SetProperty(ref _currentBook, value);
+            set => Set(ref _currentBook, value);
         }
 
         public void AddBook(Book book)

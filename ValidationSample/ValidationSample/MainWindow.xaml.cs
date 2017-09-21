@@ -1,6 +1,4 @@
-﻿using BooksSample.Services;
-using BooksSample.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,24 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace BooksSample
+namespace ValidationSample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SampleData sampleData = new SampleData();
         public MainWindow()
         {
             InitializeComponent();
-            // this.DataContext = BooksService.Instance.GetBooks();
-            ViewModel = (Application.Current as App).Container.GetService<MainViewModel>();
-            this.DataContext = this;
-
+            this.DataContext = sampleData;
         }
 
-        public MainViewModel ViewModel { get; set; }
+        private void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"text1: {sampleData.Text1}, text2: {sampleData.Text2}");
+        }
     }
 }

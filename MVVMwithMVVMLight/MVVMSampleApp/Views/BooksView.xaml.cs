@@ -1,5 +1,4 @@
-﻿using BooksSample.Services;
-using BooksSample.ViewModels;
+﻿using MySharedLib.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,22 +15,21 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BooksSample
+namespace MVVMSampleApp.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BooksView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BooksView : UserControl
     {
-        public MainWindow()
+        public BooksView()
         {
             InitializeComponent();
-            // this.DataContext = BooksService.Instance.GetBooks();
-            ViewModel = (Application.Current as App).Container.GetService<MainViewModel>();
-            this.DataContext = this;
 
+            ViewModel = (Application.Current as App).Container.GetService<BooksViewModel>();
+            this.DataContext = this;
         }
 
-        public MainViewModel ViewModel { get; set; }
+        public BooksViewModel ViewModel { get; }
     }
 }

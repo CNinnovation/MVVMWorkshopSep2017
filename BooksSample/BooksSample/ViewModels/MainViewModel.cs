@@ -14,11 +14,13 @@ namespace BooksSample.ViewModels
 {
     public class MainViewModel
     {
+        private readonly ObservableCollection<Book> _books = new ObservableCollection<Book>();
+        private readonly IBooksService _booksService;
 
-        private ObservableCollection<Book> _books = new ObservableCollection<Book>();
-
-        public MainViewModel()
+        public MainViewModel(IBooksService booksService)
         {
+            _booksService = booksService;
+
             GetBooksCommand = new RelayCommand(OnLoadBooks);
             ChangeBookCommand = new RelayCommand(OnChangeBook);
         }
@@ -30,7 +32,7 @@ namespace BooksSample.ViewModels
 
         public void OnLoadBooks()
         {
-            var books = BooksService.Instance.GetBooks();
+            var books = _booksService.GetBooks();
             foreach (var book in books)
             {
                 _books.Add(book);

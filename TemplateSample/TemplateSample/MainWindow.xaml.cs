@@ -1,6 +1,4 @@
-﻿using BooksSample.Services;
-using BooksSample.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace BooksSample
+namespace TemplateSample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -26,12 +23,11 @@ namespace BooksSample
         public MainWindow()
         {
             InitializeComponent();
-            // this.DataContext = BooksService.Instance.GetBooks();
-            ViewModel = (Application.Current as App).Container.GetService<MainViewModel>();
-            this.DataContext = this;
-
         }
 
-        public MainViewModel ViewModel { get; set; }
+        private void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("clicked");
+        }
     }
 }
